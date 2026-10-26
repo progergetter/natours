@@ -8,7 +8,7 @@
   },
   "scripts": {
     "start": "nodemon server.js",
-    "build:js": "esbuild ./public/js/index.js --bundle --outfile=./public/js/bundle.js --loader:.png=dataurl",
+    "build:js": "esbuild ./public/js/index.js --bundle --minify --outfile=./public/js/bundle.js --loader:.png=dataurl",
     "watch:js": "esbuild ./public/js/index.js --bundle --outfile=./public/js/bundle.js --loader:.png=dataurl && nodemon server.js",
     "start:prod": "NODE_ENV=production nodemon server.js",
     "debug": "ndb server.js"
@@ -19,6 +19,7 @@
     "@babel/polyfill": "^7.12.1",
     "axios": "^1.19.0",
     "bcryptjs": "^3.0.3",
+    "compression": "^1.8.2",
     "cookie-parser": "^1.4.7",
     "dotenv": "^17.3.1",
     "esbuild": "0.28.1",

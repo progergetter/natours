@@ -6,6 +6,7 @@ const helmet = require('helmet');
 const mongoSanitize = require('express-mongo-sanitize');
 const xss = require('xss-clean');
 const hpp = require('hpp');
+const compression = require('compression');
 
 const AppError = require('./utils/appError');
 const globalErrorHanlder = require('./controllers/errorController');
@@ -17,7 +18,7 @@ const viewRouter = require('./routes/viewRoutes');
 
 const cookieParser = require('cookie-parser');
 
-// Start express app
+// Start express application
 const app = express();
 
 app.set('view engine', 'pug');
@@ -115,6 +116,8 @@ app.use(
 //   console.log('Hello from the middleware');
 //   next();
 // });
+
+app.use(compression());
 
 // Test middleware
 app.use((req, res, next) => {
